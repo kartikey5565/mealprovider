@@ -1,28 +1,18 @@
-import "./HeaderCartButton.css";
-import CartIcon from "../cart/CartIcon";
-import { useContext } from "react";
-import CartContext from "../../context/cart-context";
+import classes from './HeaderCartButton.module.css';
+import CartIcon from "../Cart/CartIcon";
+
 const HeaderCartButton = (props) => {
-  const cart = useContext(CartContext);
-
-  const totalNumberOfItems = cart.items.reduce((cur, item) => { 
-    return cur + item.amount; 
-  }, 0);
-
+  
   return (
-    <button
-      onClick={() => {
-        props.showCart();
-      }}
-      className="button"
-    >
-      <span className="icon">
-        <CartIcon />
-      </span>
-      <span>Your Cart</span>
-      <span className="badge">{totalNumberOfItems}</span>
+    <button className={classes.button}>
+      <span className={classes.icon}>
+        <CartIcon/>
+        </span>
+        <span> Your Cart</span>
+        <span className={classes.badge}>3</span>
     </button>
   );
 };
 
 export default HeaderCartButton;
+  
